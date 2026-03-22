@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desserts</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #000, #1a1a1a);
+            color: #FFFDD0;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            margin-top: 30px;
+        }
+
+        /* FILTER BUTTONS */
+        .filters {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .filters button {
+            background: transparent;
+            border: 1px solid #FFFDD0;
+            color: #FFFDD0;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filters button:hover {
+            background: #FFFDD0;
+            color: black;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        /* CARD */
+        .card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .card:hover .info {
+            opacity: 1;
+        }
+
+        .price {
+            color: lightgreen;
+            font-weight: bold;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .close {
+            cursor: pointer;
+            float: right;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Desserts</h1>
+
+<div class="filters">
+    <button onclick="filterItems('all')">All</button>
+    <button onclick="filterItems('cake')">Cakes</button>
+    <button onclick="filterItems('sweet')">Others</button>
+</div>
+
+<div class="grid">
+
+    <!-- CAKES -->
+    <div class="card cake" onclick="openModal('Chocolate Lover Cake - $8')">
+        <img src="chococake.jpeg">
+        <div class="info"><h3>Chocolate Lover Cake</h3></div>
+    </div>
+
+    <div class="card cake" onclick="openModal('Red Velvet Cake - $8')">
+        <img src="redcake.webp">
+        <div class="info"><h3>Red Velvet Cake</h3></div>
+    </div>
+
+    <div class="card cake" onclick="openModal('Cheesecake - $7')">
+        <img src="cheesecake.jpg">
+        <div class="info"><h3>Cheesecake</h3></div>
+    </div>
+
+    <!-- SWEETS -->
+    <div class="card sweet" onclick="openModal('Chocolate Mousse - $6')">
+        <img src="chocomoose.webp">
+        <div class="info"><h3>Chocolate Mousse</h3></div>
+    </div>
+
+    <div class="card sweet" onclick="openModal('Ice Cream Selection - $5')">
+        <img src="icecream.jpg">
+        <div class="info"><h3>Ice Cream</h3></div>
+    </div>
+
+    <div class="card sweet" onclick="openModal('Pancakes with Cream & Berries - $7')">
+        <img src="pancakes.jpg">
+        <div class="info"><h3>Pancakes & Berries</h3></div>
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <p id="modal-text"></p>
+    </div>
+</div>
+
+<script>
+function filterItems(category) {
+    let items = document.querySelectorAll('.card');
+
+    items.forEach(item => {
+        if (category === 'all') {
+            item.style.display = 'block';
+        } else {
+            item.style.display = item.classList.contains(category) ? 'block' : 'none';
+        }
+    });
+}
+
+function openModal(text) {
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("modal-text").innerText = text;
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>

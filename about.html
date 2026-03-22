@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #000, #1a1a1a);
+            color: #FFFDD0;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #FFFDD0;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: lightgreen;
+        }
+
+        /* MAIN SECTION */
+        .container {
+            display: flex;
+            align-items: center;
+            padding: 60px;
+            gap: 50px;
+        }
+
+        /* IMAGE */
+        .image {
+            width: 50%;
+        }
+
+        .image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* TEXT */
+        .text {
+            width: 50%;
+        }
+
+        .text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .line {
+            width: 60px;
+            height: 2px;
+            background: #FFFDD0;
+            margin-bottom: 20px;
+        }
+
+        .text p {
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            background: black;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            .image, .text {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">VELVET PLATE</div>
+
+    <div>
+        <a href="Home.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contacts.html">Contact</a>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <!-- IMAGE -->
+    <div class="image">
+        <img src="mainpic.jpeg" alt="Restaurant">
+    </div>
+
+    <!-- TEXT -->
+    <div class="text">
+        <h1>About Us</h1>
+        <div class="line"></div>
+
+        <p>
+            At The Velvet Plate, we believe dining is more than just a meal — it’s an experience.
+            Our passion lies in crafting dishes that blend elegance with unforgettable flavor.
+        </p>
+
+        <p>
+            Inspired by global cuisine and refined techniques, every plate is designed to delight
+            the senses and create lasting memories.
+        </p>
+
+        <p>
+            Step into a world of warmth, sophistication, and culinary excellence — where every bite
+            truly tastes like luxury.
+        </p>
+
+        <div class="signature">
+            Regards,<br><br>
+            <strong>Anesu Nyanga</strong><br>
+            Founder
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Velvet Plate | Where Every Bite Tastes Like Luxury</p>
+</footer>
+
+</body>
+</html>

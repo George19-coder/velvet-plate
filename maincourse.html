@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Course</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #000, #1a1a1a);
+            color: #FFFDD0;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            margin-top: 30px;
+        }
+
+        /* FILTER BUTTONS */
+        .filters {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .filters button {
+            background: transparent;
+            border: 1px solid #FFFDD0;
+            color: #FFFDD0;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .filters button:hover {
+            background: #FFFDD0;
+            color: black;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        /* CARD */
+        .card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .card:hover .info {
+            opacity: 1;
+        }
+
+    
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .close {
+            cursor: pointer;
+            float: right;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Main Course</h1>
+
+<div class="filters">
+    <button onclick="filterItems('all')">All</button>
+    <button onclick="filterItems('meat')">Meat</button>
+    <button onclick="filterItems('sea')">Seafood</button>
+    <button onclick="filterItems('pasta')">Pasta</button>
+</div>
+
+<div class="grid">
+
+    <!-- MEAT -->
+    <div class="card meat" onclick="openModal('Fillet Steak with Peppercorn Sauce - $18')">
+        <img src="pepecorn.webp">
+        <div class="info"><h3>Fillet Steak</h3></div>
+    </div>
+
+    <div class="card meat" onclick="openModal('Lamb Chops with Rosemary Glaze - $14')">
+        <img src="grilled-lamb-chops-with-rosemary-garlic-seasoning.jpg">
+        <div class="info"><h3>Lamb Chops</h3></div>
+    </div>
+
+    <div class="card meat" onclick="openModal('BBQ Glazed Chicken - $13')">
+        <img src="_BBQ_Baked_Chicken.webp">
+        <div class="info"><h3>BBQ Chicken</h3></div>
+    </div>
+     <div class="card meat" onclick="openModal('Sadza and Oxtail stew - $12')">
+        <img src="sadza.jpg">
+        <div class="info"><h3>Sadza</h3></div>
+    </div>
+     <div class="card meat" onclick="openModal('Slow Cooked Beef Ribs - $14')">
+        <img src="slow cooked.jpg">
+        <div class="info"><h3>Beef</h3></div>
+    </div>
+
+    <!-- SEAFOOD -->
+    <div class="card sea" onclick="openModal('Grilled Butter Prawns - $15')">
+        <img src="grilled butter prawns.jpg">
+        <div class="info"><h3>Butter Prawns</h3></div>
+    </div>
+
+    <div class="card sea" onclick="openModal('Lemon Butter Fish Fillet - $15')">
+        <img src="Lemon-Butter-Fish-Fillet2.webp">
+        <div class="info"><h3>Fish Fillet</h3></p></div>
+    </div>
+
+    <div class="card sea" onclick="openModal('Pan Seared Salmon - $18')">
+        <img src="pan-seared-salmon.webp">
+        <div class="info"><h3>Salmon</h3></div>
+    </div>
+
+    <!-- PASTA -->
+    <div class="card pasta" onclick="openModal('Spaghetti Bolognese - $11')">
+        <img src="bolognese.jpg">
+        <div class="info"><h3>Bolognese</h3></div>
+    </div>
+
+    <div class="card pasta" onclick="openModal('Chicken Alfredo - $12')">
+        <img src="alfredo.webp">
+        <div class="info"><h3>Alfredo</h3></div>
+    </div>
+
+    <div class="card pasta" onclick="openModal('Seafood Pasta - $14')">
+        <img src="seafoodpasta.jpg">
+        <div class="info"><h3>Seafood Pasta</h3></div>
+    </div>
+     <div class="card pasta" onclick="openModal('Lazagna - $12')">
+        <img src="lasagna.webp">
+        <div class="info"><h3>Seafood Pasta</h3></div>
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <p id="modal-text"></p>
+    </div>
+</div>
+
+<script>
+function filterItems(category) {
+    let items = document.querySelectorAll('.card');
+
+    items.forEach(item => {
+        if (category === 'all') {
+            item.style.display = 'block';
+        } else {
+            item.style.display = item.classList.contains(category) ? 'block' : 'none';
+        }
+    });
+}
+
+function openModal(text) {
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("modal-text").innerText = text;
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
