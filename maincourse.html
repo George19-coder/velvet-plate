@@ -2,8 +2,6 @@
 <html>
 <head>
     <title>Main Course</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
@@ -125,6 +123,17 @@
             float: right;
             font-size: 20px;
         }
+        .badge {
+             position: absolute;
+             top: 10px;
+             left: 10px;
+             background: gold;
+             color: black;
+             padding: 5px 10px;
+             font-size: 12px;
+             border-radius: 5px;
+             font-weight: bold;
+        }
     </style>
 </head>
 
@@ -141,6 +150,18 @@
 
 <div class="grid">
 
+    <div class="card meat special" onclick="openModal('The Velvet Plate Special - Tender crown steak topped with creamy garlic Parmesan sauce, served on smooth mashed potatoes with buttered seasonal vegetables and finished with a light parsley herb drizzle - $20')">
+    
+    <span class="badge">★ Featured</span>
+
+    <img src="crown steak.jpeg">
+
+    <div class="info">
+        <h3>The Velvet Plate Special</h3>
+        <p style="font-size:14px;">Chef’s Signature</p>
+    </div>
+</div>
+
     <!-- MEAT -->
     <div class="card meat" onclick="openModal('Fillet Steak with Peppercorn Sauce - $18')">
         <img src="pepecorn.webp">
@@ -153,7 +174,7 @@
     </div>
 
     <div class="card meat" onclick="openModal('BBQ Glazed Chicken - $13')">
-        <img src="bbq.jpg">
+        <img src="_BBQ_Baked_Chicken.webp">
         <div class="info"><h3>BBQ Chicken</h3></div>
     </div>
      <div class="card meat" onclick="openModal('Sadza and Oxtail stew - $12')">
@@ -198,7 +219,7 @@
     </div>
      <div class="card pasta" onclick="openModal('Lazagna - $12')">
         <img src="lasagna.webp">
-        <div class="info"><h3>Lasagna</h3></div>
+        <div class="info"><h3>Seafood Pasta</h3></div>
     </div>
 
 </div>
